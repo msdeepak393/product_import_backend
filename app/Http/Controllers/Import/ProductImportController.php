@@ -17,7 +17,9 @@ class ProductImportController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'data' => ProductResource::collection(Product::all())
+        ]);
     }
 
     /**
@@ -29,7 +31,6 @@ class ProductImportController extends Controller
 
         return response()->json([
             'message' => 'Products imported successfully.',
-            'data' => ProductResource::collection(Product::all())
         ]);
     }
 
