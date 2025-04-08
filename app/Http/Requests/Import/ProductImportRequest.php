@@ -22,7 +22,14 @@ class ProductImportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => ['required', 'file'],
+            
+            'file' => [
+                'required',
+                'file',
+                'max:2048',
+                'mimes:csv,txt',
+                'extensions:csv'
+            ],
         ];
     }
 }
