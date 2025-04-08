@@ -18,7 +18,9 @@ class ProductImportController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => ProductResource::collection(Product::all())
+            'data' => ProductResource::collection(Product::where(
+                'user_id', auth()->user()->id
+            )->get())
         ]);
     }
 
