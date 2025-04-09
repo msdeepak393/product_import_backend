@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->string('name');
-            $table->string('sku')->unique();
+            $table->string('sku');
             $table->unsignedBigInteger('price')->comment("store price in cents or paise");
             $table->text('description')->nullable();
             $table->timestamps();

@@ -6,6 +6,8 @@ use App\Models\Product;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
+use Illuminate\Validation\Rule;
+use Illuminate\Database\Query\Builder;
 
 class ProductsImport implements ToModel, WithHeadingRow, WithValidation
 {
@@ -25,7 +27,7 @@ class ProductsImport implements ToModel, WithHeadingRow, WithValidation
         return [
             '*.product_name' => 'required|string',
             '*.price' => 'required|numeric',
-            '*.sku' => 'required|string|unique:products,sku',
+            '*.sku' => Rule::unique('products', 'sku')->where(fn (Builder $query) => $query->where('user_id', auth()->user()->id)),
             '*.description' => 'required|string',
         ];
     }
