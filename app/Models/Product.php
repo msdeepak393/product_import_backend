@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Casts\Product\Price;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Product extends Model
 {
