@@ -2,12 +2,11 @@
 
 namespace Tests\Feature\Import;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use App\Models\User;
+use Tests\TestCase;
 
 class ProductImportTest extends TestCase
 {

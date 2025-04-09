@@ -11,7 +11,6 @@ class Product extends Model
         'price' => Price::class,
     ];
 
-    
     protected $fillable = [
         'user_id',
         'name',

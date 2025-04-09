@@ -6,25 +6,22 @@ use App\Models\Product;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithValidation;
 
-class ProductsImport implements ToModel, WithHeadingRow, WithValidation, WithBatchInserts, WithChunkReading
+class ProductsImport implements ToModel, WithBatchInserts, WithChunkReading, WithHeadingRow, WithValidation
 {
-
-    public function __construct(protected int $userId)
-    {
-    }
+    public function __construct(protected int $userId) {}
 
     public function model(array $row)
     {
         return new Product([
-            'user_id'     => $this->userId,
-            'name'        => $row['product_name'],
-            'price'       => $row['price'],
-            'sku'         => $row['sku'],
+            'user_id' => $this->userId,
+            'name' => $row['product_name'],
+            'price' => $row['price'],
+            'sku' => $row['sku'],
             'description' => $row['description'],
         ]);
     }
