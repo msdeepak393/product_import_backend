@@ -29,7 +29,7 @@ class ProductImportController extends Controller
      */
     public function store(ProductImportRequest $request)
     {
-        Excel::import(new ProductsImport, $request->file('file'));
+        Excel::import(new ProductsImport(auth()->user()->id), $request->file('file'));
 
         return response()->json([
             'message' => 'Products imported successfully.',

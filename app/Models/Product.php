@@ -10,4 +10,18 @@ class Product extends Model
     public $casts = [
         'price' => Price::class,
     ];
+
+    
+    protected $fillable = [
+        'user_id',
+        'name',
+        'price',
+        'sku',
+        'description',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
