@@ -3,17 +3,17 @@
 namespace App\Imports;
 
 use App\Models\Product;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
-use Illuminate\Validation\Rule;
-use Illuminate\Database\Query\Builder;
 
 class ProductsImport implements ToModel, WithHeadingRow, WithValidation
 {
     public function model(array $row)
     {
-        $product = new Product();
+        $product = new Product;
         $product->user_id = auth()->user()->id;
         $product->name = $row['product_name'];
         $product->price = $row['price'];
@@ -32,4 +32,3 @@ class ProductsImport implements ToModel, WithHeadingRow, WithValidation
         ];
     }
 }
-

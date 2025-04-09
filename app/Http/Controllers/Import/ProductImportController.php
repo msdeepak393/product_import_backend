@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Import;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\Import\ProductImportRequest;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\ProductsImport;
 use App\Http\Resources\Import\ProductResource;
+use App\Imports\ProductsImport;
 use App\Models\Product;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductImportController extends Controller
 {
@@ -20,7 +20,7 @@ class ProductImportController extends Controller
         return response()->json([
             'data' => ProductResource::collection(Product::where(
                 'user_id', auth()->user()->id
-            )->get())
+            )->get()),
         ]);
     }
 

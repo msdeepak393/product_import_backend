@@ -24,6 +24,6 @@ class Price implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        return  $value * 100;
+        return $value * 100;
     }
 }

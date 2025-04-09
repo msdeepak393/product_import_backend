@@ -1,9 +1,9 @@
 <?php
 
+use App\models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\models\User;
 
 return new class extends Migration
 {
@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->string('name');
             $table->string('sku');
-            $table->unsignedBigInteger('price')->comment("store price in cents or paise");
+            $table->unsignedBigInteger('price')->comment('store price in cents or paise');
             $table->text('description')->nullable();
             $table->timestamps();
         });
