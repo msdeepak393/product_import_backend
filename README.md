@@ -59,3 +59,6 @@ extension=zip
 ```
 
 Restart your server (Apache/XAMPP/etc.) after updating.
+
+### Note
+For testing purpose 'allowed_origins' => ['*'] added like this in cors.php. In production you must change this.
